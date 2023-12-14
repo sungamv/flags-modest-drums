@@ -14,39 +14,15 @@ metric_name VARCHAR(255) NOT NULL,
 metric_value DOUBLE,
 metric_timestamp DATETIME
 );
-- Insert initial data for tests to pass:
-  - INSERT INTO
-    sensor_data (
-    sensor_id,
-    metric_name,
-    metric_value,
-    metric_timestamp
-    )
+- Insert initial data into the database for tests to pass:
+  - INSERT INTO sensor_data (sensor_id, metric_name, metric_value, metric_timestamp)
     VALUES
-    (
-    1,
-    'temperature',
-    '25.5',
-    '2023-12-05 09:00:00'
-    ),
-    (
-    2,
-    'humidity',
-    '30.7',
-    '2023-12-07 11:00:00'
-    ),
-    (
-    1,
-    'temperature',
-    '25.9',
-    '2023-12-09 09:00:00'
-    ),
-    (
-    2,
-    'humidity',
-    '50.3',
-    '2023-12-11 16:00:00'
-    );
+    (1, 'temperature', ROUND(RAND() * 100, 1), '2023-12-05 09:00:00'),
+    (2, 'humidity', ROUND(RAND() * 100, 1), '2023-12-07 11:00:00'),
+    (3, 'windspeed', ROUND(RAND() * 100, 1), '2023-12-09 13:00:00'),
+    (1, 'temperature', ROUND(RAND() * 100, 1), '2023-12-10 10:00:00'),
+    (2, 'humidity', ROUND(RAND() * 100, 1), '2023-12-12 15:00:00'),
+    (3, 'windspeed', ROUND(RAND() * 100, 1), '2023-12-14 16:00:00');
 
 
 
