@@ -38,12 +38,12 @@ To add a new metric value for a new/existing sensor ID:
 "metricValue": 103,
 "metricTimestamp": "2023-12-12T12:37:01"
 }'`
-  - If the sensorId is already present in the database with the provided metric name, the API call will update the database with the new metric value and timestamp supplied.
-  - If the metric name does not exist, the database will add the new metric with the metric value for the existing sensor ID.
+  - If the sensor ID is already present in the database along with the provided metric name, the API call will update the metric value and timestamp in the database.
+  - If the metric name does not exist, the database will add the new metric name with the metric value for the existing sensor ID (and the timestamp).
   - If a timestamp is not provided, the current date/time will be used.
-  - If the sensorId does not exist in the database, a new sensor ID will be created with the supplied sensor data.
+  - If the sensor ID does not exist in the database, a new sensor ID will be created with the provided sensor data.
 
 
 To query sensor data:
 - `curl -L 'http://localhost:8080/sensor-data/query?sensorIds=1%2C2%2C3&metrics=temperature%2Chumidity&statistic=average&startDate=2023-12-10&endDate=2023-12-15'`
-  - Query: Give me the average temperature and humidity for sensors 1, 2 and 3 in the last 5 days.
+  - Query explanation: Give me the average temperature and humidity for sensors 1, 2 and 3 in the last 5 days.
