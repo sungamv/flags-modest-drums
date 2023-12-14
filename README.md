@@ -15,7 +15,7 @@ metric_value DOUBLE,
 metric_timestamp DATETIME
 );
 - Insert initial data into the database for tests to pass:
-  - INSERT INTO sensor_data (sensor_id, metric_name, metric_value, metric_timestamp)
+  - `INSERT INTO sensor_data (sensor_id, metric_name, metric_value, metric_timestamp)
     VALUES
     (1, 'temperature', ROUND(RAND() * 100, 1), '2023-12-05 09:00:00'),
     (2, 'humidity', ROUND(RAND() * 100, 1), '2023-12-07 11:00:00'),
@@ -23,23 +23,21 @@ metric_timestamp DATETIME
     (1, 'temperature', ROUND(RAND() * 100, 1), '2023-12-10 10:00:00'),
     (2, 'humidity', ROUND(RAND() * 100, 1), '2023-12-12 15:00:00'),
     (3, 'windspeed', ROUND(RAND() * 100, 1), '2023-12-14 16:00:00');
-
-
+    (3, 'windspeed', ROUND(RAND() * 100, 1), '2023-12-14 16:00:00');`
 
 Start up SensorDataApplication.java.
-
 
 Example curls:
 
 To add a new metric value for a new/existing sensor ID:
-- curl -L 'http://localhost:8080/sensor-data/add' \
+- `curl -L 'http://localhost:8080/sensor-data/add' \
 -H 'Content-Type: application/json' \
 -d '{
 "sensorId": 5,
 "metricName": "windspeed",
 "metricValue": 103,
 "metricTimestamp": "2023-12-12T12:37:01"
-}'
+}'`
   - If the sensorId is already present in the database with the provided metric name, the API call will update the database with the new metric value and timestamp supplied.
   - If the metric name does not exist, the database will add the new metric with the metric value for the existing sensor ID.
   - If a timestamp is not provided, the current date/time will be used.
@@ -47,5 +45,5 @@ To add a new metric value for a new/existing sensor ID:
 
 
 To query sensor data:
-- curl -L 'http://localhost:8080/sensor-data/query?sensorIds=1%2C2%2C3&metrics=temperature%2Chumidity&statistic=average&startDate=2023-12-10&endDate=2023-12-15'
+- `curl -L 'http://localhost:8080/sensor-data/query?sensorIds=1%2C2%2C3&metrics=temperature%2Chumidity&statistic=average&startDate=2023-12-10&endDate=2023-12-15'`
   - Query: Give me the average temperature and humidity for sensors 1, 2 and 3 in the last 5 days.
