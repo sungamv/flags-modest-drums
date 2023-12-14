@@ -72,4 +72,4 @@ To add a new metric value for a new/existing sensor ID:
 
 To query sensor data:
 - curl -L 'http://localhost:8080/sensor-data/query?sensorIds=1%2C2%2C3&metrics=temperature%2Chumidity&statistic=average&startDate=2023-12-10&endDate=2023-12-15'
-  - Query: Give me the average temperature and humidity for sensors 1,2 and 3 in the last 5 days.
+  - Query: Give me the average temperature and humidity for sensors 1, 2 and 3 in the last 5 days.
