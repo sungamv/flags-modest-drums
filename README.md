@@ -62,7 +62,7 @@ To add a new metric value for a new/existing sensor ID:
 "sensorId": 5,
 "metricName": "windspeed",
 "metricValue": 103,
-"metricTimestamp": "2023-12-15T12:37:01"
+"metricTimestamp": "2023-12-12T12:37:01"
 }'
   - If the sensorId is already present in the database with the provided metric name, the API call will update the database with the new metric value and timestamp supplied.
   - If the metric name does not exist, the database will add the new metric with the metric value for the existing sensor ID.
@@ -71,6 +71,5 @@ To add a new metric value for a new/existing sensor ID:
 
 
 To query sensor data:
-- curl -L 'http://localhost:8080/sensor-data/query?sensorIds=1%2C2%2C3&metrics=temperature%2Chumidity&statistic=average&startDate=2023-12-10&endDate=2023-12-15' \
-  -H 'Content-Type: application/json' \
+- curl -L 'http://localhost:8080/sensor-data/query?sensorIds=1%2C2%2C3&metrics=temperature%2Chumidity&statistic=average&startDate=2023-12-10&endDate=2023-12-15'
   - Query: Give me the average temperature and humidity for sensors 1,2 and 3 in the last 5 days.
