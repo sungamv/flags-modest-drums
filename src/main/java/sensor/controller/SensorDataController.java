@@ -28,10 +28,11 @@ public class SensorDataController {
 
     @PostMapping("/add")
     public ResponseEntity<?> addMetricData(@Valid @RequestBody SensorData sensorData) {
-        if (sensorData.getMetricTimestamp().isAfter(now())) {
-            return badRequest().body("Timestamp cannot be later than today's date");
+        if (sensorData.getMetricTimestamp() != null) {
+            if (sensorData.getMetricTimestamp().isAfter(now())) {
+                return badRequest().body("Timestamp cannot be later than today's date");
+            }
         }
-
         sensorDataService.addMetricData(sensorData);
 
         return ok("Metric data added successfully.");
